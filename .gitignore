@@ -1,0 +1,37 @@
+# Dependencies
+frontend/node_modules/
+backend/node_modules/
+
+
+# Build outputs
+frontend/.next/
+backend/dist/
+
+# Uploaded files (temporary user data)
+backend/uploads/
+
+# Environment variables 
+backend/.env
+
+
+# Logs
+*.log
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+#Personal files
+note
