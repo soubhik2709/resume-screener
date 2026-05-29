@@ -1,6 +1,9 @@
 // import stringSimilarity from 'string-similarity';// i think this causes the same error
 
- const stringSimilarity = require('string-similarity');
+//  const stringSimilarity = require('string-similarity');
+import * as stringSimilarityInit from 'string-similarity';
+
+const stringSimilarity = (stringSimilarityInit as any).default || stringSimilarityInit;
 
  export function extractCandidateName(filename:string):string{
         return filename

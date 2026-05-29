@@ -3,9 +3,9 @@ import fs from "fs"; //Used to read, write, delete, or move files.
 import mammoth from "mammoth"; //from docx
 import textract from "textract"; // for doc
 
+import * as  pdfInit from "pdf-parse";
 
-const pdf = require("pdf-parse");
-
+const pdf = (pdfInit as any).default || pdfInit;
 
 export async function extractTextFromPDF(filePath: string): Promise<string> {
 try {
