@@ -3,6 +3,7 @@ import fs from "fs"; //Used to read, write, delete, or move files.
 import mammoth from "mammoth"; //from docx
 import textract from "textract"; // for doc
 
+
 const pdf = require("pdf-parse");
 
 
