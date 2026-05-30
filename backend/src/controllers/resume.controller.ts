@@ -9,15 +9,20 @@ import { getDB } from "../services/database.service.js";
 import fs from "fs";
 
 export async function uploadAndScreen(req: Request, res: Response) {
+
+  console.log("uploadAndScreen runnig");//THis is not running
+
   const files = req.files as Express.Multer.File[];
   const { jdText } = req.body;
+
+  // console.log("The job_description is ",jdText);
 
   if (!files || files.length === 0) {
     return res.status(400).json({ error: "No files uploaded" });
   }
 
   if (!jdText) {
-    return res.status(400).json({ error: "Job description is required" });
+    return res.status(400).json({ error: "Job description is required" });//THis is running 
   }
 
   const connection = await getDB().getConnection();

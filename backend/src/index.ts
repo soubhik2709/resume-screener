@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/api/resumes', resumeRoutes);
 
 
-connectToDatabase().then(()=>{
+await connectToDatabase().then(()=>{
     app.listen(PORT,()=>{
         console.log(`Server running on http://localhost:${PORT}`);
     })

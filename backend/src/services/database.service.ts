@@ -6,18 +6,18 @@ dotenv.config();
 let pool: mysql.Pool;
 
 const DB_HOST = process.env.DB_HOST;
-const DB_USER = process.env.DB_USER;
+const SCREENER_DB_USER = process.env.SCREENER_DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_NAME = process.env.DB_NAME;
 
-if (!DB_HOST || !DB_USER || !DB_PASSWORD || !DB_NAME) {
+if (!DB_HOST || !SCREENER_DB_USER || !DB_PASSWORD || !DB_NAME) {
   throw new Error("Missing database environment variables");
 }
 
 export async function connectToDatabase() {
   pool = mysql.createPool({
     host: DB_HOST!,
-    user: DB_USER!,
+    user: SCREENER_DB_USER!,
     password: DB_PASSWORD!,
     database: DB_NAME!,
     waitForConnections: true,

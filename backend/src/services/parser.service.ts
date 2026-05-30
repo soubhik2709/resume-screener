@@ -1,23 +1,19 @@
-import fs from "fs"; //Used to read, write, delete, or move files.
-// import  pdf from "pdf-parse"; //Extracts text/content from PDF files.
-import mammoth from "mammoth"; //from docx
-import textract from "textract"; // for doc
-
-import * as  pdfInit from "pdf-parse";
-
-const pdf = (pdfInit as any).default || pdfInit;
+import fs from "fs";
+import * as pdfParse from "pdf-parse";
+import mammoth from "mammoth";
+import textract from "textract";
 
 export async function extractTextFromPDF(filePath: string): Promise<string> {
-try {
+  try {
     const dataBuffer = fs.readFileSync(filePath);
-    const data = await pdf(dataBuffer);
-    return data.text;
+    const parser = new (pdfParse as any).PDFParse({ data: dataBuffer });
+    const result = await parser.getText();
+    return result.text;
   } catch (error) {
     console.error("Error parsing PDF:", error);
     throw new Error("Failed to parse PDF resume.");
   }
 }
-
 export async function extractTextFromDOCX(filePath: string): Promise<string> {
 try {
     const result = await mammoth.extractRawText({ path: filePath });
