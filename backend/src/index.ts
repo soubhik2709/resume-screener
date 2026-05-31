@@ -12,8 +12,9 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors({
     origin:[
-          "https://resume-screener-resume-screener-pi-nine.vercel.app.vercel.app",
-           "http://localhost:3000"
+    "https://resume-screener-soubhik-chanda-s-projects.vercel.app",
+    "https://resume-screener-git-main-soubhik-chanda-s-projects.vercel.app",
+    "http://localhost:3000"
     ]
 }));
 app.use(express.json());
