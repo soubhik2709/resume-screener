@@ -40,6 +40,8 @@ export default function Home() {
   const [results, setResults] = useState<Candidate[]>([]);
  const resultsRef = useRef<HTMLDivElement>(null);
 
+ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
   const handleSubmit = async () => {
     const formData = new FormData();
     resumes.forEach((file) => formData.append("resumes", file));
@@ -51,7 +53,7 @@ export default function Home() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/resumes/screen",
+        `${API_URL}/api/resumes/screen`,
         formData,
       );
 
@@ -76,7 +78,7 @@ export default function Home() {
 
   const handleExport = async () => {
     if (!sessionId) return;
-    window.open(`http://localhost:5000/api/resumes/export/${sessionId}`); //what is window.open?
+   window.open(`${API_URL}/api/resumes/export/${sessionId}`); //what is window.open?
   };
 
   const getScoreColor = (score: number) => {

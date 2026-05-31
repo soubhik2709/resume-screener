@@ -12,7 +12,7 @@ backend/uploads/
 
 # Environment variables 
 backend/.env
-
+frontend/.env.local
 
 # Logs
 *.log
